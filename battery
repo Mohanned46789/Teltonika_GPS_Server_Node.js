@@ -1,0 +1,11 @@
+navigator.getBattery().then(function(battery) {
+ function updateBatteryStatus() {
+    var batteryLevel = battery.level * 100;
+    var chargingStatus = battery.charging ? "البطارية تشحن" : "البطارية غير مشحونة";
+    console.log("نسبة البطارية: " + batteryLevel + "%، " + chargingStatus);
+  }
+ updateBatteryStatus();
+ battery.onlevelchange = function()
+ {
+    updateBatteryStatus();
+}
